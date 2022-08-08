@@ -1499,6 +1499,8 @@ window.initializeCodeFolding = function(show) {
   // select all R code blocks
   var rCodeBlocks = $('pre.r, pre.python, pre.bash, pre.sql, pre.cpp, pre.stan, pre.julia, pre.foldable');
   rCodeBlocks.each(function() {
+    // skip if the block has fold-none class
+    if ($(this).hasClass('fold-none')) return;
 
     // create a collapsable div to wrap the code in
     var div = $('<div class="collapse r-code-collapse"></div>');
@@ -1514,7 +1516,9 @@ window.initializeCodeFolding = function(show) {
     showCodeButton.append(showCodeText);
     showCodeButton
         .attr('data-toggle', 'collapse')
+        .attr('data-bs-toggle', 'collapse') // BS5
         .attr('data-target', '#' + id)
+        .attr('data-bs-target', '#' + id)   // BS5
         .attr('aria-expanded', showThis)
         .attr('aria-controls', id);
 
@@ -1604,6 +1608,7 @@ if (window.hljs) {
 
 
 
+
 <style type="text/css">
 #rmd-source-code {
   display: none;
@@ -1634,6 +1639,9 @@ button.code-folding-btn:focus {
 }
 summary {
   display: list-item;
+}
+details > summary > p:only-child {
+  display: inline;
 }
 pre code {
   padding: 0;
@@ -1743,7 +1751,7 @@ pre code {
 <div id="header">
 
 <div class="btn-group pull-right float-right">
-<button type="button" class="btn btn-default btn-xs btn-secondary btn-sm dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span>Code</span> <span class="caret"></span></button>
+<button type="button" class="btn btn-default btn-xs btn-secondary btn-sm dropdown-toggle" data-toggle="dropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span>Code</span> <span class="caret"></span></button>
 <ul class="dropdown-menu dropdown-menu-right" style="min-width: 50px;">
 <li><a id="rmd-show-all-code" href="#">Show All Code</a></li>
 <li><a id="rmd-hide-all-code" href="#">Hide All Code</a></li>
@@ -1760,14 +1768,79 @@ pre code {
 
 
 <!-- rnb-text-begin -->
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuaW5zdGFsbC5wYWNrYWdlcyhcInhtbDJcIilcbmBgYCJ9 -->
+<pre class="r"><code>install.packages(&quot;xml2&quot;)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiRXJyb3IgaW4gaW5zdGFsbC5wYWNrYWdlcyA6IFVwZGF0aW5nIGxvYWRlZCBwYWNrYWdlc1xuIn0= -->
+<pre><code>Error in install.packages : Updating loaded packages</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
 <div id="libraries" class="section level1">
 <h1>libraries</h1>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubGlicmFyeShsZWFmbGV0KVxubGlicmFyeShodG1sd2lkZ2V0cylcbmBgYCJ9 -->
-<pre class="r"><code>library(leaflet)
-library(htmlwidgets)</code></pre>
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubGlicmFyeShyZ2RhbCkgIyB0byBpbXBvcnQgbWFwc1xubGlicmFyeShsZWFmbGV0KSAjIHRvIG1ha2UgbWFwc1xubGlicmFyeShodG1sd2lkZ2V0cykgIyB0byBjb252ZXJ0IHRvIHNvbWV0aGluZyB0aGF0IGNhbiBiZSB1c2VkIGluIGh0bWxcbmxpYnJhcnkoeG1sMikgIyBmb3IgY29udmVydGluZyBYTUwgZmlsZSB0byBkYXRhIGZyYW1lXG5saWJyYXJ5KFhNTClcbmBgYCJ9 -->
+<pre class="r"><code>library(rgdal) # to import maps
+library(leaflet) # to make maps
+library(htmlwidgets) # to convert to something that can be used in html
+library(xml2) # for converting XML file to data frame
+library(XML)</code></pre>
 <!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+</div>
+<div id="import-australia-map" class="section level1">
+<h1>import australia map</h1>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuYXVzX21hcCA8LSByZWFkT0dSKCBcbiAgICAgIGRzbj0gcGFzdGUwKGdldHdkKCksXCIvZGF0YS9cIikgLCBcbiAgICAgIGxheWVyPVwiU1RFXzIwMjFfQVVTVF9HREEyMDIwXCJcbiAgICApXG5gYGAifQ== -->
+<pre class="r"><code>aus_map &lt;- readOGR( 
+      dsn= paste0(getwd(),&quot;/data/&quot;) , 
+      layer=&quot;STE_2021_AUST_GDA2020&quot;
+    )</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiV2FybmluZyBpbiBPR1JTcGF0aWFsUmVmKGRzbiwgbGF5ZXIsIG1vcnBoRnJvbUVTUkkgPSBtb3JwaEZyb21FU1JJLCBkdW1wU1JTID0gZHVtcFNSUywgIDpcbiAgRGlzY2FyZGVkIGRhdHVtIEdlb2NlbnRyaWNfRGF0dW1fb2ZfQXVzdHJhbGlhXzIwMjAgaW4gUHJvajQgZGVmaW5pdGlvbjogK3Byb2o9bG9uZ2xhdCArZWxscHM9R1JTODAgK3Rvd2dzODQ9MCwwLDAsMCwwLDAsMCArbm9fZGVmc1xuIn0= -->
+<pre><code>Warning in OGRSpatialRef(dsn, layer, morphFromESRI = morphFromESRI, dumpSRS = dumpSRS,  :
+  Discarded datum Geocentric_Datum_of_Australia_2020 in Proj4 definition: +proj=longlat +ellps=GRS80 +towgs84=0,0,0,0,0,0,0 +no_defs</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiT0dSIGRhdGEgc291cmNlIHdpdGggZHJpdmVyOiBFU1JJIFNoYXBlZmlsZSBcblNvdXJjZTogXCIvVXNlcnMvZGV2bGlzaC9EZXNrdG9wL3IvZGF0YVwiLCBsYXllcjogXCJTVEVfMjAyMV9BVVNUX0dEQTIwMjBcIlxud2l0aCAxMCBmZWF0dXJlc1xuSXQgaGFzIDggZmllbGRzXG4ifQ== -->
+<pre><code>OGR data source with driver: ESRI Shapefile 
+Source: &quot;/Users/devlish/Desktop/r/data&quot;, layer: &quot;STE_2021_AUST_GDA2020&quot;
+with 10 features
+It has 8 fields</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiV2FybmluZyBpbiByZWFkT0dSKGRzbiA9IHBhc3RlMChnZXR3ZCgpLCBcIi9kYXRhL1wiKSwgbGF5ZXIgPSBcIlNURV8yMDIxX0FVU1RfR0RBMjAyMFwiKSA6XG4gIERyb3BwaW5nIG51bGwgZ2VvbWV0cmllczogMTBcbiJ9 -->
+<pre><code>Warning in readOGR(dsn = paste0(getwd(), &quot;/data/&quot;), layer = &quot;STE_2021_AUST_GDA2020&quot;) :
+  Dropping null geometries: 10</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+</div>
+<div id="import-data" class="section level1">
+<h1>import data</h1>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuIyB1diB1cGRhdGluZyBkYXRhXG51dl9saW5rIDwtIFwiaHR0cHM6Ly91dmRhdGEuYXJwYW5zYS5nb3YuYXUveG1sL3V2dmFsdWVzLnhtbFwiXG51dl94bWwgPC0gZG93bmxvYWRfeG1sKHV2X2xpbmspXG51dl9wYXJzZWQgPC0geG1sUGFyc2UodXZfeG1sKVxudXZfZGF0YSA8LSB4bWxUb0RhdGFGcmFtZSh1dl9wYXJzZWQpXG5gYGAifQ== -->
+<pre class="r"><code># uv updating data
+uv_link &lt;- &quot;https://uvdata.arpansa.gov.au/xml/uvvalues.xml&quot;
+uv_xml &lt;- download_xml(uv_link)
+uv_parsed &lt;- xmlParse(uv_xml)
+uv_data &lt;- xmlToDataFrame(uv_parsed)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxueG1sR2V0QXR0cih1dl9wYXJzZWQpXG5gYGAifQ== -->
+<pre class="r"><code>xmlGetAttr(uv_parsed)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiRXJyb3IgaW4gVXNlTWV0aG9kKFwieG1sQXR0cnNcIiwgbm9kZSkgOiBcbiAgbm8gYXBwbGljYWJsZSBtZXRob2QgZm9yICd4bWxBdHRycycgYXBwbGllZCB0byBhbiBvYmplY3Qgb2YgY2xhc3MgXCJjKCdYTUxJbnRlcm5hbERvY3VtZW50JywgJ1hNTEFic3RyYWN0RG9jdW1lbnQnKVwiXG4ifQ== -->
+<pre><code>Error in UseMethod(&quot;xmlAttrs&quot;, node) : 
+  no applicable method for &#39;xmlAttrs&#39; applied to an object of class &quot;c(&#39;XMLInternalDocument&#39;, &#39;XMLAbstractDocument&#39;)&quot;</code></pre>
+<!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 </div>
@@ -1788,7 +1861,7 @@ saveWidget(m, file=&quot;testmap.html&quot;, selfcontained = TRUE)</code></pre>
 <!-- rnb-text-end -->
 </div>
 
-<div id="rmd-source-code">LS0tCnRpdGxlOiAiVVYgRm9yZWNhc3QgTWFwIgpvdXRwdXQ6IGh0bWxfbm90ZWJvb2sKLS0tCgojIGxpYnJhcmllcwoKYGBge3J9CmxpYnJhcnkobGVhZmxldCkKbGlicmFyeShodG1sd2lkZ2V0cykKYGBgCgojIHRlc3QKYGBge3J9Cm0gPC0gbGVhZmxldChkYXRhLmZyYW1lKGxhdCA9IDU1LjcxNjU0LCBsbmcgPSAxMi40NzQ4NCkpCm0gPC0gIGFkZENpcmNsZXMobSwgcG9wdXAgPSAidGVzdHBvcHVwIikKbSA8LSAgYWRkVGlsZXMobSkKbQoKc2F2ZVdpZGdldChtLCBmaWxlPSJ0ZXN0bWFwLmh0bWwiLCBzZWxmY29udGFpbmVkID0gVFJVRSkKYGBgCgo=</div>
+<div id="rmd-source-code">LS0tCnRpdGxlOiAiVVYgRm9yZWNhc3QgTWFwIgpvdXRwdXQ6IGh0bWxfbm90ZWJvb2sKLS0tCgpgYGB7cn0KaW5zdGFsbC5wYWNrYWdlcygieG1sMiIpCmBgYAoKIyBsaWJyYXJpZXMKYGBge3J9CmxpYnJhcnkocmdkYWwpICMgdG8gaW1wb3J0IG1hcHMKbGlicmFyeShsZWFmbGV0KSAjIHRvIG1ha2UgbWFwcwpsaWJyYXJ5KGh0bWx3aWRnZXRzKSAjIHRvIGNvbnZlcnQgdG8gc29tZXRoaW5nIHRoYXQgY2FuIGJlIHVzZWQgaW4gaHRtbApsaWJyYXJ5KHhtbDIpICMgZm9yIGNvbnZlcnRpbmcgWE1MIGZpbGUgdG8gZGF0YSBmcmFtZQpsaWJyYXJ5KFhNTCkKYGBgCgojIGltcG9ydCBhdXN0cmFsaWEgbWFwCmBgYHtyfQphdXNfbWFwIDwtIHJlYWRPR1IoIAogICAgICBkc249IHBhc3RlMChnZXR3ZCgpLCIvZGF0YS8iKSAsIAogICAgICBsYXllcj0iU1RFXzIwMjFfQVVTVF9HREEyMDIwIgogICAgKQpgYGAKCiMgaW1wb3J0IGRhdGEKYGBge3J9CiMgdXYgdXBkYXRpbmcgZGF0YQp1dl9saW5rIDwtICJodHRwczovL3V2ZGF0YS5hcnBhbnNhLmdvdi5hdS94bWwvdXZ2YWx1ZXMueG1sIgp1dl94bWwgPC0gZG93bmxvYWRfeG1sKHV2X2xpbmspCnV2X3BhcnNlZCA8LSB4bWxQYXJzZSh1dl94bWwpCnV2X2RhdGEgPC0geG1sVG9EYXRhRnJhbWUodXZfcGFyc2VkKQpgYGAKCmBgYHtyfQp4bWxHZXRBdHRyKHV2X3BhcnNlZCkKYGBgCgoKIyB0ZXN0CmBgYHtyfQptIDwtIGxlYWZsZXQoZGF0YS5mcmFtZShsYXQgPSA1NS43MTY1NCwgbG5nID0gMTIuNDc0ODQpKQptIDwtICBhZGRDaXJjbGVzKG0sIHBvcHVwID0gInRlc3Rwb3B1cCIpCm0gPC0gIGFkZFRpbGVzKG0pCm0KCnNhdmVXaWRnZXQobSwgZmlsZT0idGVzdG1hcC5odG1sIiwgc2VsZmNvbnRhaW5lZCA9IFRSVUUpCmBgYAoKCgo=</div>
 
 
 

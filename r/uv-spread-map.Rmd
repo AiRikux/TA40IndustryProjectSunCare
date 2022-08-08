@@ -3,12 +3,40 @@ title: "UV Forecast Map"
 output: html_notebook
 ---
 
+```{r}
+install.packages("xml2")
+```
+
 # libraries
+```{r}
+library(rgdal) # to import maps
+library(leaflet) # to make maps
+library(htmlwidgets) # to convert to something that can be used in html
+library(xml2) # for converting XML file to data frame
+library(XML)
+```
+
+# import australia map
+```{r}
+aus_map <- readOGR( 
+      dsn= paste0(getwd(),"/data/") , 
+      layer="STE_2021_AUST_GDA2020"
+    )
+```
+
+# import data
+```{r}
+# uv updating data
+uv_link <- "https://uvdata.arpansa.gov.au/xml/uvvalues.xml"
+uv_xml <- download_xml(uv_link)
+uv_parsed <- xmlParse(uv_xml)
+uv_data <- xmlToDataFrame(uv_parsed)
+```
 
 ```{r}
-library(leaflet)
-library(htmlwidgets)
+xmlGetAttr(uv_parsed)
 ```
+
 
 # test
 ```{r}
@@ -19,4 +47,6 @@ m
 
 saveWidget(m, file="testmap.html", selfcontained = TRUE)
 ```
+
+
 
