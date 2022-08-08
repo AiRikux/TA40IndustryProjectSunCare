@@ -4,7 +4,7 @@ output: html_notebook
 ---
 
 ```{r}
-install.packages("xml2")
+
 ```
 
 # libraries
@@ -12,8 +12,9 @@ install.packages("xml2")
 library(rgdal) # to import maps
 library(leaflet) # to make maps
 library(htmlwidgets) # to convert to something that can be used in html
-library(xml2) # for converting XML file to data frame
-library(XML)
+library(XML) # for converting XML file to data frame
+library(xml2) # for downloading the xml file before parsing
+library(tidyverse) # transform and transpose dataframe
 ```
 
 # import australia map
@@ -29,13 +30,30 @@ aus_map <- readOGR(
 # uv updating data
 uv_link <- "https://uvdata.arpansa.gov.au/xml/uvvalues.xml"
 uv_xml <- download_xml(uv_link)
-uv_parsed <- xmlParse(uv_xml)
-uv_data <- xmlToDataFrame(uv_parsed)
+uv_parsed <- xmlParse(uv_xml, useInternalNodes = FALSE)
+#uv_data <- xmlToDataFrame(uv_parsed)
+uv_list <- xmlToList(uv_parsed)
+```
+
+# tranform and transpose the list
+```{r}
+uv_data <- as.data.frame(t(uv_list))
+# remove rownmaes
+rownames(uv_data) <- NULL
+# edit colnames
+colnames(uv_data)[8] <- "fullname"
+# convert data types to their proper ones
+uv_data <- type.convert(uv_data, as.is = TRUE)
+# filter status by "ok"
+data <- filter(uv_data, status == "ok") %>%
+  select(., -status)
 ```
 
 ```{r}
-xmlGetAttr(uv_parsed)
+
 ```
+
+
 
 
 # test

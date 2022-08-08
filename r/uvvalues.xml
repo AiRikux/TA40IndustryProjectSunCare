@@ -3,154 +3,154 @@
   <location id="Adelaide">
     <name>adl</name>
     <index>0.0</index>
-    <time>10:46 PM</time>
-    <date>8/08/2022</date>
-    <fulldate>Monday, 8 August 2022</fulldate>
-    <utcdatetime>2022/08/08 13:16</utcdatetime>
+    <time>1:15 AM</time>
+    <date>9/08/2022</date>
+    <fulldate>Tuesday, 9 August 2022</fulldate>
+    <utcdatetime>2022/08/08 15:45</utcdatetime>
     <status>ok</status>
   </location>
   <location id="Alice Springs">
     <name>ali</name>
     <index>0.0</index>
-    <time>10:46 PM</time>
-    <date>8/08/2022</date>
-    <fulldate>Monday, 8 August 2022</fulldate>
-    <utcdatetime>2022/08/08 13:16</utcdatetime>
+    <time>1:15 AM</time>
+    <date>9/08/2022</date>
+    <fulldate>Tuesday, 9 August 2022</fulldate>
+    <utcdatetime>2022/08/08 15:45</utcdatetime>
     <status>ok</status>
   </location>
   <location id="Brisbane">
     <name>bri</name>
     <index>0.0</index>
-    <time>11:16 PM</time>
-    <date>8/08/2022</date>
-    <fulldate>Monday, 8 August 2022</fulldate>
-    <utcdatetime>2022/08/08 13:16</utcdatetime>
+    <time>1:45 AM</time>
+    <date>9/08/2022</date>
+    <fulldate>Tuesday, 9 August 2022</fulldate>
+    <utcdatetime>2022/08/08 15:45</utcdatetime>
     <status>ok</status>
   </location>
   <location id="Canberra">
     <name>can</name>
     <index>0.0</index>
-    <time>11:16 PM</time>
-    <date>8/08/2022</date>
-    <fulldate>Monday, 8 August 2022</fulldate>
-    <utcdatetime>2022/08/08 13:16</utcdatetime>
+    <time>1:45 AM</time>
+    <date>9/08/2022</date>
+    <fulldate>Tuesday, 9 August 2022</fulldate>
+    <utcdatetime>2022/08/08 15:45</utcdatetime>
     <status>ok</status>
   </location>
   <location id="Casey">
     <name>cas</name>
     <index>0.0</index>
-    <time>9:16 PM</time>
+    <time>11:45 PM</time>
     <date>8/08/2022</date>
     <fulldate>Monday, 8 August 2022</fulldate>
-    <utcdatetime>2022/08/08 13:16</utcdatetime>
+    <utcdatetime>2022/08/08 15:45</utcdatetime>
     <status>ok</status>
   </location>
   <location id="Darwin">
     <name>dar</name>
     <index>0.0</index>
-    <time>10:46 PM</time>
-    <date>8/08/2022</date>
-    <fulldate>Monday, 8 August 2022</fulldate>
-    <utcdatetime>2022/08/08 13:16</utcdatetime>
+    <time>1:15 AM</time>
+    <date>9/08/2022</date>
+    <fulldate>Tuesday, 9 August 2022</fulldate>
+    <utcdatetime>2022/08/08 15:45</utcdatetime>
     <status>ok</status>
   </location>
   <location id="Davis">
     <name>dav</name>
     <index>0.0</index>
-    <time>8:16 PM</time>
+    <time>10:45 PM</time>
     <date>8/08/2022</date>
     <fulldate>Monday, 8 August 2022</fulldate>
-    <utcdatetime>2022/08/08 13:16</utcdatetime>
+    <utcdatetime>2022/08/08 15:45</utcdatetime>
     <status>ok</status>
   </location>
   <location id="Emerald">
     <name>emd</name>
     <index>0.0</index>
-    <time>11:16 PM</time>
-    <date>8/08/2022</date>
-    <fulldate>Monday, 8 August 2022</fulldate>
-    <utcdatetime>2022/08/08 13:16</utcdatetime>
+    <time>1:45 AM</time>
+    <date>9/08/2022</date>
+    <fulldate>Tuesday, 9 August 2022</fulldate>
+    <utcdatetime>2022/08/08 15:45</utcdatetime>
     <status>ok</status>
   </location>
   <location id="Gold Coast">
     <name>gco</name>
     <index>0.0</index>
-    <time>11:16 PM</time>
-    <date>8/08/2022</date>
-    <fulldate>Monday, 8 August 2022</fulldate>
-    <utcdatetime>2022/08/08 13:16</utcdatetime>
+    <time>1:45 AM</time>
+    <date>9/08/2022</date>
+    <fulldate>Tuesday, 9 August 2022</fulldate>
+    <utcdatetime>2022/08/08 15:45</utcdatetime>
     <status>ok</status>
   </location>
   <location id="Kingston">
     <name>kin</name>
     <index>0.0</index>
-    <time>11:16 PM</time>
-    <date>8/08/2022</date>
-    <fulldate>Monday, 8 August 2022</fulldate>
-    <utcdatetime>2022/08/08 13:16</utcdatetime>
+    <time>1:45 AM</time>
+    <date>9/08/2022</date>
+    <fulldate>Tuesday, 9 August 2022</fulldate>
+    <utcdatetime>2022/08/08 15:45</utcdatetime>
     <status>ok</status>
   </location>
   <location id="Macquarie Island">
     <name>mcq</name>
     <index>0.0</index>
-    <time>11:16 PM</time>
-    <date>8/08/2022</date>
-    <fulldate>Monday, 8 August 2022</fulldate>
-    <utcdatetime>2022/08/08 13:16</utcdatetime>
+    <time>1:45 AM</time>
+    <date>9/08/2022</date>
+    <fulldate>Tuesday, 9 August 2022</fulldate>
+    <utcdatetime>2022/08/08 15:45</utcdatetime>
     <status>ok</status>
   </location>
   <location id="Mawson">
     <name>maw</name>
     <index>0.0</index>
-    <time>6:16 PM</time>
+    <time>8:45 PM</time>
     <date>8/08/2022</date>
     <fulldate>Monday, 8 August 2022</fulldate>
-    <utcdatetime>2022/08/08 13:16</utcdatetime>
+    <utcdatetime>2022/08/08 15:45</utcdatetime>
     <status>ok</status>
   </location>
   <location id="Melbourne">
     <name>mel</name>
     <index>0.0</index>
-    <time>11:16 PM</time>
-    <date>8/08/2022</date>
-    <fulldate>Monday, 8 August 2022</fulldate>
-    <utcdatetime>2022/08/08 13:16</utcdatetime>
+    <time>1:45 AM</time>
+    <date>9/08/2022</date>
+    <fulldate>Tuesday, 9 August 2022</fulldate>
+    <utcdatetime>2022/08/08 15:45</utcdatetime>
     <status>ok</status>
   </location>
   <location id="Newcastle">
     <name>new</name>
     <index>0.0</index>
-    <time>11:16 PM</time>
-    <date>8/08/2022</date>
-    <fulldate>Monday, 8 August 2022</fulldate>
-    <utcdatetime>2022/08/08 13:16</utcdatetime>
+    <time>1:45 AM</time>
+    <date>9/08/2022</date>
+    <fulldate>Tuesday, 9 August 2022</fulldate>
+    <utcdatetime>2022/08/08 15:45</utcdatetime>
     <status>ok</status>
   </location>
   <location id="Perth">
     <name>per</name>
     <index>0.0</index>
-    <time>9:16 PM</time>
+    <time>11:45 PM</time>
     <date>8/08/2022</date>
     <fulldate>Monday, 8 August 2022</fulldate>
-    <utcdatetime>2022/08/08 13:16</utcdatetime>
+    <utcdatetime>2022/08/08 15:45</utcdatetime>
     <status>ok</status>
   </location>
   <location id="Sydney">
     <name>syd</name>
     <index>0.0</index>
-    <time>11:16 PM</time>
-    <date>8/08/2022</date>
-    <fulldate>Monday, 8 August 2022</fulldate>
-    <utcdatetime>2022/08/08 13:16</utcdatetime>
+    <time>1:46 AM</time>
+    <date>9/08/2022</date>
+    <fulldate>Tuesday, 9 August 2022</fulldate>
+    <utcdatetime>2022/08/08 15:46</utcdatetime>
     <status>ok</status>
   </location>
   <location id="Townsville">
     <name>tow</name>
     <index>0.0</index>
-    <time>11:16 PM</time>
-    <date>8/08/2022</date>
-    <fulldate>Monday, 8 August 2022</fulldate>
-    <utcdatetime>2022/08/08 13:16</utcdatetime>
+    <time>1:46 AM</time>
+    <date>9/08/2022</date>
+    <fulldate>Tuesday, 9 August 2022</fulldate>
+    <utcdatetime>2022/08/08 15:46</utcdatetime>
     <status>ok</status>
   </location>
 </stations>
