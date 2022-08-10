@@ -47,12 +47,26 @@ uv_data <- type.convert(uv_data, as.is = TRUE)
 # filter status by "ok"
 data <- filter(uv_data, status == "ok") %>%
   select(., -status)
+# unlist
+data <- as.data.frame(lapply(data, unlist))
 ```
 
+# get city data list
 ```{r}
-
+# import file
+cities <- read_csv("worldcities.csv")
+# filter by australia and choose relevant columns
+aus_city <- filter(cities, country == "Australia") %>% 
+  select('fullname' = 'city', 'state' = "admin_name", 'lat', 'lng')
 ```
 
+# merge and get final result
+```{r}
+# merge data
+uvs <- merge(data, aus_city, by = 'fullname', all.x = TRUE) %>%
+  na.omit()
+
+```
 
 
 
